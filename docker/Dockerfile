@@ -12,6 +12,13 @@ RUN pip install --upgrade tensorflow tensorflow-gpu
 #COPY ./keras.json /root/.keras/keras.json
 #COPY ./keras/ /root/.keras/models/
 
+RUN apt-get install libopencv-dev python-opencv -y 
+RUN pip install scikit-image 
+RUN apt-get install python-tk -y
+#RUN add-apt-repository ppa:orangain/opencv
+#RUN apt-get update
+#RUN apt-get install python3-opencv
+
 WORKDIR /opt/courses/deeplearning1/nbs/
 EXPOSE 8888
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root"]
